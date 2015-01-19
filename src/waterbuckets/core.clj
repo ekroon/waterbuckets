@@ -1,6 +1,7 @@
 (ns waterbuckets.core
   (:gen-class)
-  (require [clojure.core.match :refer [match]]))
+  (require [clojure.core.match :refer [match]])
+  (require [criterium.core :refer :all]))
 
 (defn solved? [state]
   (match state
@@ -77,4 +78,5 @@
   (println "Hello, World!"))
 
 
-(time (solve))
+(solve)
+;;(with-progress-reporting (bench (solve) :verbose))

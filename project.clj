@@ -4,7 +4,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/core.match "0.3.0-alpha4"]]
+                 [org.clojure/core.match "0.3.0-alpha4"]
+                 [criterium "0.4.3"]]
   :main ^:skip-aot waterbuckets.core
   :target-path "target/%s"
   :plugins [[cider/cider-nrepl "0.7.0"]]
