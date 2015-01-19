@@ -36,23 +36,25 @@
 ;;(create-steps [12 0 0])
 
 (defn next-steps [current history]
-  (let [steps1 (create-steps current)]
-    (loop [steps (into (list) steps1)
-           history history]
-      (if (empty? steps)
-        [steps1 history]
-        (recur (pop steps)
-               (assoc history
-                 (peek steps)
-                 (let [old (get history current [])
-                       new (conj old (peek steps))
-                       prev (get history (peek steps) [])
-                       prev-new (conj prev current)]
-                   (if (or (empty? prev)
-                           (> (count prev-new)(count new)))
-                     new
-                     prev))
-                 ))))))
+  (loop [steps (into (list) (create-steps current))
+         history history
+         next []]
+    (if (empty? steps)
+      [next history]
+      (recur (pop steps)
+             (assoc history
+               (peek steps)
+               (let [old (get history current [])
+                     new (conj old (peek steps))
+                     prev (get history (peek steps) [])
+                     prev-new (conj prev current)]
+                 (if (or (empty? prev)
+                         (> (count prev-new)(count new)))
+                   new
+                   prev)))
+             (if (contains? history (peek steps))
+               next
+               (conj next (peek steps)))))))
 
 ;;(next-steps [12 0 0] {[12 0 0] [[12 0 0]]})
 
