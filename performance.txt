@@ -1,0 +1,26 @@
+Generated version:
+WARNING: Final GC required 1.467253464313816 % of runtime
+Evaluation count : 138360 in 60 samples of 2306 calls.
+             Execution time mean : 434.039993 µs
+    Execution time std-deviation : 6.928622 µs
+   Execution time lower quantile : 425.713951 µs ( 2.5%)
+   Execution time upper quantile : 453.096795 µs (97.5%)
+                   Overhead used : 1.722011 ns
+
+Found 3 outliers in 60 samples (5.0000 %)
+	low-severe	 3 (5.0000 %)
+ Variance from outliers : 1.6389 % Variance is slightly inflated by outliers
+
+
+Unrolled version
+Evaluation count : 407400 in 60 samples of 6790 calls.
+             Execution time mean : 149.443772 µs
+    Execution time std-deviation : 4.722547 µs
+   Execution time lower quantile : 145.186314 µs ( 2.5%)
+   Execution time upper quantile : 159.991552 µs (97.5%)
+                   Overhead used : 1.722011 ns
+
+Found 10 outliers in 60 samples (16.6667 %)
+	low-severe	 2 (3.3333 %)
+	low-mild	 8 (13.3333 %)
+ Variance from outliers : 18.9569 % Variance is moderately inflated by outliers
