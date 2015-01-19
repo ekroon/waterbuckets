@@ -42,20 +42,17 @@
          next []]
     (if (empty? steps)
       [next history]
-      (recur (pop steps)
-             (assoc history
-               (peek steps)
-               (let [old (get history current [])
-                     new (conj old (peek steps))
-                     prev (get history (peek steps) [])
-                     prev-new (conj prev current)]
-                 (if (or (empty? prev)
-                         (> (count prev-new)(count new)))
-                   new
-                   prev)))
-             (if (contains? history (peek steps))
-               next
-               (conj next (peek steps)))))))
+      (let [in-history? (contains? history (peek steps))
+            head (peek steps)]
+        (if in-history?
+          (recur (pop steps)
+                 history
+                 next)
+          (recur (pop steps)
+                 (assoc history
+                   head
+                   (conj (get history current []) head))
+                 (conj next head)))))))
 
 ;;(next-steps [12 0 0] {[12 0 0] [[12 0 0]]})
 
