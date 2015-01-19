@@ -70,10 +70,9 @@
           (get history current))))))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Execute with benchmark"
   [& args]
-  (println "Hello, World!"))
+  (with-progress-reporting (bench (solve) :verbose)))
 
 
-(solve)
-;;(with-progress-reporting (bench (solve) :verbose))
+;;(solve)
